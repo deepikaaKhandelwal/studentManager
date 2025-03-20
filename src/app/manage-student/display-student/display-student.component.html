@@ -23,7 +23,7 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let student">
-        <button  class="edit-btn" mat-icon-button (click)="editStudent(student)">
+        <button class="edit-btn" mat-icon-button (click)="editStudent(student)">
           <mat-icon>edit</mat-icon>
         </button>
         <button class="delete-btn" mat-icon-button (click)="deleteStudent(student.email)">
@@ -38,55 +38,55 @@
 
   <div class="edit-form" *ngIf="editClicked">
     <mat-card>
-        <h2>Edit Student</h2>
-        <form [formGroup]="studentForm" (ngSubmit)="save()">
-          <div class="name">
-              <div class="firstName">
-                  <mat-form-field appearance="outline">
-                      <mat-label>First Name</mat-label>
-                      <input matInput id="firstName" formControlName="firstName" required>
-                      <mat-error>Please enter a valid first name</mat-error>
-                  </mat-form-field>
-              </div>
-              <div class="lastName">
-                  <mat-form-field appearance="outline">
-                      <mat-label>Last Name</mat-label>
-                      <input id="lastName" matInput formControlName="lastName" required>
-                      <mat-error>Please enter a valid last name</mat-error>
-                  </mat-form-field>
-              </div>
+      <h2>Edit Student</h2>
+      <form [formGroup]="studentForm" (ngSubmit)="save()">
+        <div class="name">
+          <div class="firstName">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput id="firstName" formControlName="firstName" required>
+              <mat-error>Please enter a valid first name</mat-error>
+            </mat-form-field>
           </div>
-          <div class="birthDate">
-              <mat-form-field appearance="fill">
-                  <mat-label>Birth Date</mat-label>
-                  <input matInput [min]="minDate" [max]="maxDate" formControlName="dob" [matDatepicker]="picker" required/>
-                  <mat-hint>MM/DD/YYYY</mat-hint>
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+          <div class="lastName">
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input id="lastName" matInput formControlName="lastName" required>
+              <mat-error>Please enter a valid last name</mat-error>
+            </mat-form-field>
           </div>
-          <div class="gender">
-              <mat-label>Gender * :</mat-label>
-              <mat-radio-group formControlName="gender" required>
-                  <mat-radio-button value="Male">Male</mat-radio-button>
-                  <mat-radio-button value="Female">Female</mat-radio-button>
-                  <mat-radio-button value="Other">Other</mat-radio-button>
-              </mat-radio-group>
-          </div>
-          <div class="courseOpted">
-              <mat-form-field>
-                  <mat-label>Select course</mat-label>
-                  <mat-select formControlName="course" required>
-                      <mat-option value="Hi">Hi</mat-option>
-                      <mat-option value="test">test</mat-option>
-                      <mat-option value="test2">test2</mat-option>
-                      <mat-option value="test3">test3</mat-option>
-                  </mat-select>
-                  <mat-error>Please select the course opted by student</mat-error>
-              </mat-form-field>
-          </div>
-          <button type="submit" class="save-btn"><span>Save</span></button>
-          <button type="reset" class="cancel-btn" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="birthDate">
+          <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [min]="minDate" [max]="maxDate" formControlName="dob" [matDatepicker]="picker" required />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="gender">
+          <mat-label>Gender * :</mat-label>
+          <mat-radio-group formControlName="gender" required>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Other">Other</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="courseOpted">
+          <mat-form-field>
+            <mat-label>Select course</mat-label>
+            <mat-select formControlName="course" required>
+              <mat-option value="Computer Science">Computer Science</mat-option>
+              <mat-option value="Electrical">Electrical</mat-option>
+              <mat-option value="Civil">Civil</mat-option>
+              <mat-option value="Mechanical">Mechanical</mat-option>
+            </mat-select>
+            <mat-error>Please select the course opted by student</mat-error>
+          </mat-form-field>
+        </div>
+        <button type="submit" class="save-btn"><span>Save</span></button>
+        <button type="reset" class="cancel-btn" (click)="cancel()">Cancel</button>
       </form>
     </mat-card>
   </div>
