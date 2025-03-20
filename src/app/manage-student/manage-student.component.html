@@ -1,0 +1,70 @@
+<div class="add-student-container">
+    <mat-card>
+        <mat-card-title class="title">
+            Add Student
+        </mat-card-title>
+
+        <mat-card-content>
+            <div class="form-title">
+                <form [formGroup]="studentForm" (ngSubmit)="addStudent()">
+                    <div class="name">
+                        <div class="firstName">
+                            <mat-form-field appearance="outline">
+                                <mat-label>First Name</mat-label>
+                                <input matInput formControlName="firstName" placeholder="e.g. Abhay" required>
+                                <mat-error>Please enter a valid first name</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="lastName">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput formControlName="lastName" placeholder="e.g. Gupta" required>
+                                <mat-error>Please enter a valid last name</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" placeholder="e.g. Abhay.gupta@gmail.com" required>
+                            <mat-error>Please enter a valid email</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="birthDate">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Birth Date</mat-label>
+                            <input matInput [min]="minDate" [max]="maxDate" formControlName="dob" [matDatepicker]="picker" required/>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="gender">
+                        <mat-label>Gender * :</mat-label>
+                        <mat-radio-group formControlName="gender" required>
+                            <mat-radio-button value="Male">Male</mat-radio-button>
+                            <mat-radio-button value="Female">Female</mat-radio-button>
+                            <mat-radio-button value="Other">Other</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="courseOpted">
+                        <mat-form-field>
+                            <mat-label>Select course</mat-label>
+                            <mat-select formControlName="course" required>
+                                <mat-option value="Computer Science">Computer Science</mat-option>
+                                <mat-option value="Electrical">Electrical</mat-option>
+                                <mat-option value="Civil">Civil</mat-option>
+                                <mat-option value="Mechanical">Mechanical</mat-option>
+                            </mat-select>
+                            <mat-error>Please select the course opted by student</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <button class="add-btn" type="submit"><span>Add Student</span></button>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="students.length > 0">
+        <app-display-student></app-display-student>
+    </mat-card>
+</div>
